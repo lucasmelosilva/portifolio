@@ -1,7 +1,11 @@
+import { NavBar } from "./components/NavBar"
+
 function App() {
 
   return (
-    <h1 className="font-signature text-7xl">Hello</h1>
+    <div>
+      <NavBar />
+    </div>
   )
 }
 
