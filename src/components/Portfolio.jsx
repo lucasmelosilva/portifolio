@@ -1,4 +1,5 @@
 import Calc from '../assets/portfolio/calc.png'
+import RocketShoes from '../assets/portfolio/rocketshoes.png'
 
 function Portfolio() {
   const portfolios = [
@@ -10,9 +11,9 @@ function Portfolio() {
     },
     {
       id: 2,
-      image: Calc,
-      code: "https://github.com/lucasmelosilva/calculadora",
-      demo: "https://lucasmelosilva.github.io/calculadora"
+      image: RocketShoes,
+      code: "https://github.com/lucasmelosilva/rocketshoes",
+      demo: "https://lucasmelosilva.github.io/rocketshoes"
     },
     {
       id: 3,
