@@ -1,9 +1,19 @@
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import emailjs from '@emailjs/browser';
 
 function Contact() {
   const form = useRef()
   const [status, setStatus] = useState('')
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setStatus('')
+    }, 10000)
+
+    return (() => {
+      clearInterval(timer)
+    })
+  }, [status])
 
   const statusSpan = {
     success: {
