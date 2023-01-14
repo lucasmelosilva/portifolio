@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser';
 function Contact() {
   const form = useRef()
   const [status, setStatus] = useState('')
+  const [disable, setDisable] = useState(false)
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -28,14 +29,16 @@ function Contact() {
 
   const sendEmail = (e) => {
     e.preventDefault()
-
+    setDisable(true)
     emailjs.sendForm(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID, form.current, import.meta.env.VITE_PUBLIC_ID)
       .then((result) => {
         console.log(result.status)
         setStatus('success')
+        setDisable(false)
       }, (error) => {
         console.log(error.text);
         setStatus('err')
+        setDisable(false)
       });
   }
 
@@ -83,7 +86,7 @@ function Contact() {
               className="p-2 bg-transparent border-2 rounded-md text-white focus:outline-none"
             ></textarea>
 
-            <button type="submit" className="group font-medium text-white w-fit px-6 py-3 my-2 flex items-center rounded-md bg-gradient-to-b from-cyan-500 to-blue-500 hover:scale-105 duration-200 cursor-pointer">Let's talk</button>
+            <button disabled={disable} type="submit" className="group font-medium text-white w-fit px-6 py-3 my-2 flex items-center rounded-md bg-gradient-to-b from-cyan-500 to-blue-500 hover:scale-105 duration-200 cursor-pointer">Let's talk</button>
           </form>
         </div>
       </div>
